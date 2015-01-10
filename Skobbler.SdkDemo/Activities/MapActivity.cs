@@ -1,6 +1,7 @@
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Graphics;
 using Android.Hardware;
 using Android.OS;
 using Android.Util;
@@ -70,7 +71,7 @@ namespace Skobbler.SdkDemo.Activities
         private SKPosition _currentPosition;
         private bool _headingOn;
         private int _realReachRange;
-        private sbyte _realReachVehicleType = SKRealReachSettings.VehicleTypePedestrian;
+        private SKTransportType _realReachVehicleType = SKTransportType.Pedestrian;
         private ImageButton _pedestrianButton;
         private ImageButton _bikeButton;
         private ImageButton _carButton;
@@ -167,7 +168,7 @@ namespace Skobbler.SdkDemo.Activities
             ShowRealReach(_realReachVehicleType, _realReachRange);
         }
 
-        private void ShowRealReach(sbyte vehicleType, int range)
+        private void ShowRealReach(SKTransportType vehicleType, int range)
         {
             _mapView.SetRealReachListener(this);
 
@@ -176,7 +177,7 @@ namespace Skobbler.SdkDemo.Activities
             realReachSettings.Latitude = realReachCenter.Latitude;
             realReachCenter.Longitude = realReachCenter.Longitude;
 
-            realReachSettings.MeasurementUnit = SKRealReachSettings.UnitSecond;
+            realReachSettings.MeasurementUnit = SKMeasurementUnit.Second;
             realReachSettings.Range = range * 60.0F;
             realReachSettings.TransportMode = vehicleType;
 
@@ -276,7 +277,7 @@ namespace Skobbler.SdkDemo.Activities
                             _mapView.FitTrackElementInView(TrackElementsActivity.SelectedTrackElement, false);
 
                             SKRouteManager.Instance.SetRouteListener(this);
-                            SKRouteManager.Instance.CreateRouteFromTrackElement(TrackElementsActivity.SelectedTrackElement, SKRouteSettings.SkrouteBicycleFastest, true, true, false);
+                            SKRouteManager.Instance.CreateRouteFromTrackElement(TrackElementsActivity.SelectedTrackElement, SKRouteType.BicycleFastest, true, true, false);
                         }
                         break;
                     default:
@@ -525,7 +526,7 @@ namespace Skobbler.SdkDemo.Activities
             SKTrackablePOI poi = _trackablePOIs[poiId];
             annotation.Location = new SKCoordinate(poi.Longitude, poi.Latitude);
             annotation.MininumZoomLevel = 5;
-            annotation.AnnotationType = SKAnnotation.SkAnnotationTypeMarker;
+            annotation.AnnotationType = SKAnnotationType.Marker;
             _mapView.AddAnnotation(annotation, SKAnimationSettings.AnimationNone);
         }
 
@@ -655,8 +656,8 @@ namespace Skobbler.SdkDemo.Activities
             // set the outline size
             polygon.OutlineSize = 3;
             // set colors used to render the polygon
-            polygon.SetOutlineColor(new float[] { 1f, 0f, 0f, 1f });
-            polygon.SetColor(new float[] { 1f, 0f, 0f, 0.2f });
+            polygon.OutlineColor = new Color(1,0,0,1);
+            polygon.Color = new Color(1, 0, 0, 1);
             // render the polygon on the map
             _mapView.AddPolygon(polygon);
 
@@ -665,8 +666,8 @@ namespace Skobbler.SdkDemo.Activities
             // set the shape's mask scale
             circleMask.MaskedObjectScale = 1.3f;
             // set the colors
-            circleMask.SetColor(new float[] { 1f, 1f, 0.5f, 0.67f });
-            circleMask.SetOutlineColor(new float[] { 0f, 0f, 0f, 1f });
+            circleMask.Color = new Color(1, 0, 0, 1);
+            circleMask.OutlineColor = new Color(1, 0, 0, 1);
             circleMask.OutlineSize = 3;
             // set circle center and radius
             circleMask.CircleCenter = new SKCoordinate(-122.4200, 37.7665);
@@ -689,9 +690,9 @@ namespace Skobbler.SdkDemo.Activities
             nodes.Add(new SKCoordinate(-122.4342, 37.7753));
             polyline.Nodes = nodes;
             // set polyline color
-            polyline.SetColor(new float[] { 0f, 0f, 1f, 1f });
+            polyline.Color = new Color(1, 0, 0, 1);
             // set properties for the outline
-            polyline.SetOutlineColor(new float[] { 0f, 0f, 1f, 1f });
+            polyline.OutlineColor = new Color(0, 0, 1, 1);
             polyline.OutlineSize = 4;
             polyline.OutlineDottedPixelsSolid = 3;
             polyline.OutlineDottedPixelsSkip = 3;
@@ -705,7 +706,7 @@ namespace Skobbler.SdkDemo.Activities
             route.DestinationCoordinate = new SKCoordinate(-122.484378, 37.856300);
             // number of alternative routes specified here
             route.NoOfRoutes = 3;
-            route.RouteMode = SKRouteSettings.SkrouteCarFastest;
+            route.RouteMode = SKRouteType.CarFastest;
             route.RouteExposed = true;
             SKRouteManager.Instance.SetRouteListener(this);
             SKRouteManager.Instance.CalculateRoute(route);
@@ -749,7 +750,7 @@ namespace Skobbler.SdkDemo.Activities
             // set minimum zoom level at which the annotation should be visible
             annotation1.MininumZoomLevel = 5;
             // set the annotation's type
-            annotation1.AnnotationType = SKAnnotation.SkAnnotationTypeRed;
+            annotation1.AnnotationType = SKAnnotationType.Red;
             // render annotation on map
             _mapView.AddAnnotation(annotation1, SKAnimationSettings.AnimationNone);
 
@@ -757,14 +758,14 @@ namespace Skobbler.SdkDemo.Activities
             annotation2.UniqueID = 11;
             annotation2.Location = new SKCoordinate(-122.410338, 37.769193);
             annotation2.MininumZoomLevel = 5;
-            annotation2.AnnotationType = SKAnnotation.SkAnnotationTypeGreen;
+            annotation2.AnnotationType = SKAnnotationType.Green;
             _mapView.AddAnnotation(annotation2, SKAnimationSettings.AnimationNone);
 
             SKAnnotation annotation3 = new SKAnnotation();
             annotation3.UniqueID = 12;
             annotation3.Location = new SKCoordinate(-122.430337, 37.779776);
             annotation3.MininumZoomLevel = 5;
-            annotation3.AnnotationType = SKAnnotation.SkAnnotationTypeBlue;
+            annotation3.AnnotationType = SKAnnotationType.Blue;
             _mapView.AddAnnotation(annotation3, SKAnimationSettings.AnimationNone);
 
             // add an annotation with an image file
@@ -855,7 +856,7 @@ namespace Skobbler.SdkDemo.Activities
             // set the number of routes to be calculated
             route.NoOfRoutes = 1;
             // set the route mode
-            route.RouteMode = SKRouteSettings.SkrouteCarFastest;
+            route.RouteMode = SKRouteType.CarFastest;
             // set whether the route should be shown on the map after it's computed
             route.RouteExposed = true;
             // set the route listener to be notified of route calculation
@@ -878,7 +879,7 @@ namespace Skobbler.SdkDemo.Activities
             // set minimum zoom level at which the annotation should be visible
             annotation1.MininumZoomLevel = 5;
             // set the annotation's type
-            annotation1.AnnotationType = SKAnnotation.SkAnnotationTypeRed;
+            annotation1.AnnotationType = SKAnnotationType.Red;
             // render annotation on map
             _mapView.AddAnnotation(annotation1, SKAnimationSettings.AnimationNone);
 
@@ -886,7 +887,7 @@ namespace Skobbler.SdkDemo.Activities
             annotation2.UniqueID = 11;
             annotation2.Location = new SKCoordinate(-122.419789, 37.775428);
             annotation2.MininumZoomLevel = 5;
-            annotation2.AnnotationType = SKAnnotation.SkAnnotationTypeGreen;
+            annotation2.AnnotationType = SKAnnotationType.Green;
             _mapView.AddAnnotation(annotation2, SKAnimationSettings.AnimationNone);
 
             float density = Resources.DisplayMetrics.Density;
@@ -1056,21 +1057,21 @@ namespace Skobbler.SdkDemo.Activities
                     }
                     break;
                 case Resource.Id.real_reach_pedestrian_button:
-                    _realReachVehicleType = SKRealReachSettings.VehicleTypePedestrian;
+                    _realReachVehicleType = SKTransportType.Pedestrian;
                     ShowRealReach(_realReachVehicleType, _realReachRange);
                     _pedestrianButton.SetBackgroundColor(Resources.GetColor(Resource.Color.blue_filling));
                     _bikeButton.SetBackgroundColor(Resources.GetColor(Resource.Color.grey));
                     _carButton.SetBackgroundColor(Resources.GetColor(Resource.Color.grey));
                     break;
                 case Resource.Id.real_reach_bike_button:
-                    _realReachVehicleType = SKRealReachSettings.VehicleTypeBicycle;
+                    _realReachVehicleType = SKTransportType.Bicycle;
                     ShowRealReach(_realReachVehicleType, _realReachRange);
                     _bikeButton.SetBackgroundColor(Resources.GetColor(Resource.Color.blue_filling));
                     _pedestrianButton.SetBackgroundColor(Resources.GetColor(Resource.Color.grey));
                     _carButton.SetBackgroundColor(Resources.GetColor(Resource.Color.grey));
                     break;
                 case Resource.Id.real_reach_car_button:
-                    _realReachVehicleType = SKRealReachSettings.VehicleTypeCar;
+                    _realReachVehicleType = SKTransportType.Car;
                     ShowRealReach(_realReachVehicleType, _realReachRange);
                     _carButton.SetBackgroundColor(Resources.GetColor(Resource.Color.blue_filling));
                     _pedestrianButton.SetBackgroundColor(Resources.GetColor(Resource.Color.grey));
@@ -1091,7 +1092,7 @@ namespace Skobbler.SdkDemo.Activities
         {
             SKNavigationSettings navigationSettings = new SKNavigationSettings();
             // set the desired navigation settings
-            navigationSettings.NavigationType = SKNavigationSettings.NavigationTypeSimulation;
+            navigationSettings.NavigationType = SKNavigationType.Simulation;
             navigationSettings.PositionerVerticalAlignment = -0.25F;
             navigationSettings.ShowRealGPSPositions = false;
             // get the navigation manager object
@@ -1249,9 +1250,9 @@ namespace Skobbler.SdkDemo.Activities
 
         }
 
-        public void OnRouteCalculationCompleted(int statusMessage, int routeDistance, int routeEta, bool thisRouteIsComplete, int id)
+        public void OnRouteCalculationCompleted(SKRouteStatus statusMessage, int routeDistance, int routeEta, bool thisRouteIsComplete, int id)
         {
-            if (statusMessage != SKRouteListener.RouteSuccess)
+            if (statusMessage != SKRouteStatus.Success)
             {
                 RunOnUiThread(() => Toast.MakeText(this, Resources.GetString(Resource.String.route_calculation_failed), ToastLength.Short).Show());
                 return;

@@ -1,2 +1,102 @@
 ﻿<enum-method-mappings>
+  
+  <mapping jni-class="com/skobbler/ngx/map/SKMapScaleView">
+    <method jni-name="setBorderColor" parameter="borderColor" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setDarkerColor" parameter="darkerColor" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setLighterColor" parameter="lighterColor" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setTextColor" parameter="textColor" clr-enum-type="Android.Graphics.Color" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/map/SKCalloutView">
+    <method jni-name="setDescriptionTextColor" parameter="color" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setTailColor" parameter="color" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setTitleTextColor" parameter="color" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setViewColor" parameter="color" clr-enum-type="Android.Graphics.Color" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/map/SKAnnotationText">
+    <method jni-name="getOutlineColor" parameter="return" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="getTextColor" parameter="return" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setOutlineColor" parameter="outlineColor" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setTextColor" parameter="textColor" clr-enum-type="Android.Graphics.Color" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/map/SKCircle">
+    <method jni-name="getColor" parameter="return" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="getOutlineColor" parameter="return" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setOutlineColor" parameter="outlineColor" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setColor" parameter="color" clr-enum-type="Android.Graphics.Color" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/map/SKPolygon">
+    <method jni-name="getColor" parameter="return" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="getOutlineColor" parameter="return" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setOutlineColor" parameter="outlineColor" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setColor" parameter="color" clr-enum-type="Android.Graphics.Color" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/map/SKPolyline">
+    <method jni-name="getColor" parameter="return" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="getOutlineColor" parameter="return" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setOutlineColor" parameter="outlineColor" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setColor" parameter="color" clr-enum-type="Android.Graphics.Color" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/navigation/SKVisualAdviceColor">
+    <method jni-name="getAllowedStreetColor" parameter="return" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="getBackgroundColor" parameter="return" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="getForbiddenStreetColor" parameter="return" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="getRouteStreetColor" parameter="return" clr-enum-type="Android.Graphics.Color" />
+
+    <method jni-name="setAllowedStreetColor" parameter="allowedStreetColor" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setBackgroundColor" parameter="backgroundColor" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setForbiddenStreetColor" parameter="forbiddenStreetColor" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setRouteStreetColor" parameter="routeStreetColor" clr-enum-type="Android.Graphics.Color" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/trail/SKTrailType">
+    <method jni-name="getColor" parameter="return" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setColor" parameter="color" clr-enum-type="Android.Graphics.Color" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/map/SKPulseAnimationSettings">
+    <method jni-name="getColor" parameter="return" clr-enum-type="Android.Graphics.Color" />
+    <method jni-name="setColor" parameter="color" clr-enum-type="Android.Graphics.Color" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/map/realreach/SKRealReachSettings">
+    <method jni-name="getMeasurementUnit" parameter="return" clr-enum-type="Skobbler.Ngx.Map.RealReach.SKMeasurementUnit" />
+    <method jni-name="setMeasurementUnit" parameter="measurementUnit" clr-enum-type="Skobbler.Ngx.Map.RealReach.SKMeasurementUnit" />
+
+    <method jni-name="getTransportMode" parameter="return" clr-enum-type="Skobbler.Ngx.Map.RealReach.SKTransportType" />
+    <method jni-name="setTransportMode" parameter="transportMode" clr-enum-type="Skobbler.Ngx.Map.RealReach.SKTransportType" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/routing/SKRouteSettings">
+    <method jni-name="getRouteMode" parameter="return" clr-enum-type="Skobbler.Ngx.Routing.SKRouteType" />
+    <method jni-name="setRouteMode" parameter="routeMode" clr-enum-type="Skobbler.Ngx.Routing.SKRouteType" />
+
+    <method jni-name="getRouteConnectionMode" parameter="return" clr-enum-type="Skobbler.Ngx.Routing.SKRouteConnectionType" />
+    <method jni-name="setRouteConnectionMode" parameter="routeConnectionMode" clr-enum-type="Skobbler.Ngx.Routing.SKRouteConnectionType" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/map/SKAnnotation">
+    <method jni-name="getAnnotationType" parameter="return" clr-enum-type="Skobbler.Ngx.Map.SKAnnotationType" />
+    <method jni-name="setAnnotationType" parameter="annotationType" clr-enum-type="Skobbler.Ngx.Map.SKAnnotationType" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/navigation/SKNavigationSettings">
+    <method jni-name="getNavigationType" parameter="return" clr-enum-type="Skobbler.Ngx.Navigation.SKNavigationType" />
+    <method jni-name="setNavigationType" parameter="navigationType" clr-enum-type="Skobbler.Ngx.Navigation.SKNavigationType" />
+  </mapping>
+
+  <mapping jni-interface="com/skobbler/ngx/routing/SKRouteListener">
+    <method jni-name="onRouteCalculationCompleted" parameter="statusMessage" clr-enum-type="Skobbler.Ngx.Routing.SKRouteStatus" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/routing/SKRouteManager">
+    <method jni-name="createRouteFromTrackElement" parameter="routeMode" clr-enum-type="Skobbler.Ngx.Routing.SKRouteType" />
+  </mapping>
+  
 </enum-method-mappings>
+

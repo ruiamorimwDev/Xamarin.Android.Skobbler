@@ -1,2 +1,60 @@
 ﻿<enum-field-mappings>
+  
+  <mapping jni-class="com/skobbler/ngx/map/realreach/SKRealReachSettings" clr-enum-type="Skobbler.Ngx.Map.RealReach.SKMeasurementUnit">
+    <field jni-name="UNIT_SECOND" clr-name="Second" value="0" />
+    <field jni-name="UNIT_METER" clr-name="Meter" value="1" />
+    <field jni-name="UNIT_MILIWATT_HOURS" clr-name="MilliwattHour" value="2" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/map/realreach/SKRealReachSettings" clr-enum-type="Skobbler.Ngx.Map.RealReach.SKTransportType">
+    <field jni-name="VEHICLE_TYPE_CAR" clr-name="Car" value="0" />
+    <field jni-name="VEHICLE_TYPE_BICYCLE" clr-name="Bicycle" value="1" />
+    <field jni-name="VEHICLE_TYPE_PEDESTRIAN" clr-name="Pedestrian" value="2" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/routing/SKRouteSettings" clr-enum-type="Skobbler.Ngx.Routing.SKRouteType">
+    <field jni-name="SKROUTE_CAR_SHORTEST" clr-name="CarShortest" value="0" />
+    <field jni-name="SKROUTE_CAR_FASTEST" clr-name="CarFastest" value="1" />
+    <field jni-name="SKROUTE_EFFICIENT" clr-name="Efficient" value="2" />
+    <field jni-name="SKROUTE_PEDESTRIAN" clr-name="Pedestrian" value="3" />
+    <field jni-name="SKROUTE_BICYCLE_FASTEST" clr-name="BicycleFastest" value="4" />
+    <field jni-name="SKROUTE_BICYCLE_SHORTEST" clr-name="BicycleShortest" value="5" />
+    <field jni-name="SKROUTE_BICYCLE_QUIETEST" clr-name="BicycleQuietest" value="6" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/routing/SKRouteSettings" clr-enum-type="Skobbler.Ngx.Routing.SKRouteConnectionType">
+    <field jni-name="SKROUTE_CONNECTION_ONLINE" clr-name="Online" value="0" />
+    <field jni-name="SKROUTE_CONNECTION_OFFLINE" clr-name="Offline" value="1" />
+    <field jni-name="SKROUTE_CONNECTION_HYBRID" clr-name="Hybrid" value="2" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/map/SKAnnotation" clr-enum-type="Skobbler.Ngx.Map.SKAnnotationType">
+    <field jni-name="SK_ANNOTATION_TYPE_PURPLE" clr-name="Purple" value="32" />
+    <field jni-name="SK_ANNOTATION_TYPE_BLUE" clr-name="Blue" value="33" />
+    <field jni-name="SK_ANNOTATION_TYPE_GREEN" clr-name="Green" value="38" />
+    <field jni-name="SK_ANNOTATION_TYPE_RED" clr-name="Red" value="39" />
+    <field jni-name="SK_ANNOTATION_TYPE_DESTINATION_FLAG" clr-name="DestinationFlag" value="47" />
+    <field jni-name="SK_ANNOTATION_TYPE_MARKER" clr-name="Marker" value="64" />
+  </mapping>
+
+  <mapping jni-class="com/skobbler/ngx/navigation/SKNavigationSettings" clr-enum-type="Skobbler.Ngx.Navigation.SKNavigationType">
+    <field jni-name="NAVIGATION_TYPE_REAL" clr-name="Real" value="0" />
+    <field jni-name="NAVIGATION_TYPE_FILE" clr-name="File" value="1" />
+    <field jni-name="NAVIGATION_TYPE_SIMULATION" clr-name="Simulation" value="2" />
+  </mapping>
+
+  <mapping jni-interface="com/skobbler/ngx/routing/SKRouteListener" clr-enum-type="Skobbler.Ngx.Routing.SKRouteStatus">
+    <field jni-name="ROUTE_SUCCESS" clr-name="Success" value="600" />
+    <field jni-name="ROUTE_NO_RESULTS_FOUND" clr-name="NoResultsFound" value="601" />
+    <field jni-name="ROUTE_SAME_START_AND_DESTINATION" clr-name="SameStartAndDestination" value="680" />
+    <field jni-name="ROUTE_INVALID_START" clr-name="InvalidStart" value="681" />
+    <field jni-name="ROUTE_INVALID_DESTINATION" clr-name="InvalidDestination" value="682" />
+    <field jni-name="ROUTE_CANNOT_BE_CALCULATED" clr-name="CannotBeCalculated" value="683" />
+    <field jni-name="ROUTE_INVALID_VIA_POINT" clr-name="InvalidViaPoint" value="684" />
+    <field jni-name="ROUTE_INTERNAL_ERROR" clr-name="InternalError" value="690" />
+    <field jni-name="ROUTE_IDENTICAL_ALTERNATIVE" clr-name="IdenticalAlternative" value="907" />
+    <field jni-name="ROUTE_APP_OFFLINE" clr-name="AppOffline" value="909" />
+    <field jni-name="ROUTE_INTERNET_IS_TURNED_OFF" clr-name="InternetIsTurnedOff" value="910" />
+  </mapping>
+
 </enum-field-mappings>
